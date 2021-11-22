@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import clientPromise from "../lib/mongodb";
 
 export default function Home({ posts }) {
   const [postsState, setPostsState] = useState([]);
@@ -70,12 +69,13 @@ export default function Home({ posts }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await clientPromise;
-
-  const db = client.db("nextjs-mongodb-atlas-demo");
-
-  let posts = await db.collection("posts").find({}).toArray();
-  posts = JSON.parse(JSON.stringify(posts));
+  let res = await fetch("http://localhost:3000/api/posts", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  let posts = await res.json();
 
   return {
     props: { posts },
