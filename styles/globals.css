@@ -1,16 +1,57 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.container {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  box-shadow: 0 2px 5px 0 #dfdfdf, 0 8px 40px 0 rgb(10 14 29 / 6%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 20rem;
+  height: auto;
+  margin-top: 2rem;
+}
+.card h2 {
+  font-size: 2em;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.card p {
+  font-size: 1.5em;
+}
+form {
+  margin-top: 2rem;
+}
+input,
+textarea {
+  width: 20rem;
+  padding: 1rem;
+  font-size: 1.2em;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
 }
 
-* {
-  box-sizing: border-box;
+button {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  font-size: 1.2em;
+  background: #505050;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #292929;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 95%;
+  }
+  input,
+  textarea {
+    width: 95%;
+  }
 }
